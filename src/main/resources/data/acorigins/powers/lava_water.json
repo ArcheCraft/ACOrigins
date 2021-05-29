@@ -1,0 +1,19 @@
+{
+  "type": "origins:multiple",
+  "lava_vision": {
+    "type": "origins:lava_vision",
+    "s": 0.0,
+    "v": 75.0
+  },
+  "lava_swimming": {
+    "type": "origins:swimming",
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:lava",
+      "comparison": ">",
+      "compare_to": 0.0
+    }
+  },
+  "name": "Lavadynamic body",
+  "description": "You can swim in lava."
+}

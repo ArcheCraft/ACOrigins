@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "acorigins",
+  "version": "${version}",
+
+  "name": "ACOrigins",
+  "description": "Origins addon.",
+  "authors": [
+    "ArcheCraft"
+  ],
+
+  "license": "GPLv3",
+  "icon": "assets/acorigins/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.archecraft.minecraft.acorigins.ACOrigins"
+    ],
+    "client": [
+      "com.archecraft.minecraft.acorigins.ACOriginsClient"
+    ],
+    "modmenu": [
+      "com.archecraft.minecraft.acorigins.config.ModMenuIntegration"
+    ],
+    "cardinal-components-entity": [
+      "com.archecraft.minecraft.acorigins.registry.ACOComponents"
+    ]
+  },
+  "custom": {
+    "cardinal-components": [
+      "acorigins:data"
+    ]
+  },
+  "mixins": [
+    "acorigins.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": ">=0.29.4",
+    "minecraft": "1.16.x",
+    "origins": ">=0.7.0"
+  }
+}

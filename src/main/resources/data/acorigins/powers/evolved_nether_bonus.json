@@ -1,0 +1,18 @@
+{
+  "type": "acorigins:nether_bonus",
+  "condition":{
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_nether"
+      },
+      {
+        "type": "origins:dimension",
+        "dimension": "minecraft:the_end"
+      }
+    ]
+  },
+  "name": "Strange home",
+  "description": "You get bonuses to max health, speed, reach, damage and armor while in the nether and the end."
+}

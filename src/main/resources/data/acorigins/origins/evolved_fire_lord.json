@@ -1,0 +1,27 @@
+{
+  "powers": [
+    "origins:fire_immunity",
+    "origins:nether_spawn",
+    "origins:burning_wrath",
+    "origins:hotblooded",
+    "origins:water_vulnerability",
+    "origins:flame_particles",
+    "origins:damage_from_snowballs",
+    "origins:damage_from_potions",
+    "acorigins:fire_aspect",
+    "acorigins:lava_water",
+    "acorigins:flight",
+    "acorigins:wither_inflict",
+    "acorigins:evolved_nether_bonus",
+    "acorigins:wither_bonus",
+    "acorigins:dragon_bonus"
+  ],
+  "icon": {
+    "item": "minecraft:wither_skeleton_skull"
+  },
+  "order": 1,
+  "impact": 3,
+  "loading_priority": 1,
+  "name": "Lord of the Nether",
+  "description": "The Lord of the Nether is very strong while in the Nether, but has only limited time to live in the Overworld."
+}

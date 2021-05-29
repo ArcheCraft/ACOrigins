@@ -1,0 +1,12 @@
+{
+  "commands.acorigins.upgrades.invalid_upgrade_type": "Invalid upgrade type: %s",
+
+  "commands.acorigins.upgrades.points": "Available upgrade points: %s",
+
+  "commands.acorigins.upgrades.list": "Upgrade prices:",
+  "commands.acorigins.upgrades.list.speed": "Speed: %s",
+  "commands.acorigins.upgrades.list.health": "Health: %s",
+  "commands.acorigins.upgrades.list.damage": "Damage: %s",
+  "commands.acorigins.upgrades.list.armor": "Armor: %s",
+  "commands.acorigins.upgrades.list.range": "Range: %s"
+}
