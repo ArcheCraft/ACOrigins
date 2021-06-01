@@ -1,4 +1,14 @@
 {
+  "display": {
+    "icon": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "title": "Ain't got a hobby?",
+    "frame": "challenge",
+    "description": "Slay 100 Withers",
+    "hidden": true
+  },
+  "parent": "minecraft:nether/summon_wither",
   "criteria": {
     "impossible": {
       "trigger": "minecraft:impossible"
