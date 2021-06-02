@@ -14,7 +14,8 @@
     "acorigins:wither_inflict",
     "acorigins:evolved_nether_bonus",
     "acorigins:wither_bonus",
-    "acorigins:dragon_bonus"
+    "acorigins:dragon_bonus",
+    "acorigins:furnace"
   ],
   "icon": {
     "item": "minecraft:wither_skeleton_skull"

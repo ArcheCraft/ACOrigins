@@ -13,7 +13,8 @@
     "acorigins:flight",
     "acorigins:wither_inflict",
     "acorigins:hellish_life",
-    "acorigins:nether_bonus"
+    "acorigins:nether_bonus",
+    "acorigins:furnace"
   ],
   "icon": {
     "item": "minecraft:wither_skeleton_skull"

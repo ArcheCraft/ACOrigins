@@ -6,6 +6,7 @@ import io.github.apace100.origins.power.*;
 import io.github.apace100.origins.power.factory.PowerFactory;
 import io.github.apace100.origins.registry.ModRegistries;
 import io.github.apace100.origins.util.SerializableData;
+import io.github.apace100.origins.util.SerializableDataType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -38,11 +39,21 @@ public class ACOPowers {
             new SerializableData(),
             instance -> WitherKillBonusPower::new
     ).allowCondition());
-    public static final PowerFactory<Power> DRAGON_BONUS = create(new PowerFactory<Power>(
+    public static final PowerFactory<Power> DRAGON_BONUS = create(new PowerFactory<>(
             new Identifier(ACOrigins.MODID, "dragon_bonus"),
             new SerializableData(),
             instance -> KillDragonBonusPower::new
     ));
+    public static final PowerFactory<Power> FURNACE_POWER = create(new PowerFactory<>(new Identifier(ACOrigins.MODID, "furnace"),
+            new SerializableData()
+                    .add("name", SerializableDataType.STRING, "container.inventory")
+                    .add("key", SerializableDataType.KEY, new Active.Key()),
+            data ->
+                    (type, player) -> {
+                        FurnacePower power = new FurnacePower(type, player, data.getString("name"));
+                        power.setKey((Active.Key) data.get("key"));
+                        return power;
+                    }));
     
     
     private static <T extends Power> PowerFactory<T> create(PowerFactory<T> factory) {
