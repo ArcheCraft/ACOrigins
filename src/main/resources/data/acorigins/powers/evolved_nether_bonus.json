@@ -13,6 +13,5 @@
       }
     ]
   },
-  "name": "Strange home",
-  "description": "You get bonuses to max health, speed, reach, damage and armor while in the nether and the end."
+  "hidden": true
 }

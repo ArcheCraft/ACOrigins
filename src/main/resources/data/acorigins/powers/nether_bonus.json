@@ -4,6 +4,5 @@
     "type": "origins:dimension",
     "dimension": "minecraft:the_nether"
   },
-  "name": "Hellish home",
-  "description": "You get bonuses to max health, speed, reach, damage and armor while in the nether."
+  "hidden": true
 }
