@@ -46,14 +46,21 @@ public abstract class PlayerEntityMixin {
             ModComponents.ORIGIN.get(this).getPowers(WitherKillBonusPower.class).forEach(WitherKillBonusPower::killedWither);
     
             if (data.getWithersKilled() >= 100) {
-                if ((Object) this instanceof ServerPlayerEntity) {
-                    Advancement advancement = ((PlayerEntity)(Object) this).getServer().getAdvancementLoader().get(Identifier.tryParse("acorigins:withers_killed"));
-                    AdvancementProgress progress = ((ServerPlayerEntity)(Object) this).getAdvancementTracker().getProgress(advancement);
-                    if (!progress.isDone()) {
-                        for (String criteria : progress.getUnobtainedCriteria()) {
-                            ((ServerPlayerEntity)(Object) this).getAdvancementTracker().grantCriterion(advancement, criteria);
-                        }
-                    }
+                completeAdvancement("acorigins:withers_killed");
+            }
+            if (data.getWithersKilled() >= 10000) {
+                completeAdvancement("acorigins:more_withers_killed");
+            }
+        }
+    }
+    
+    private void completeAdvancement(String name) {
+        if ((Object) this instanceof ServerPlayerEntity) {
+            Advancement advancement = ((PlayerEntity)(Object) this).getServer().getAdvancementLoader().get(Identifier.tryParse(name));
+            AdvancementProgress progress = ((ServerPlayerEntity)(Object) this).getAdvancementTracker().getProgress(advancement);
+            if (!progress.isDone()) {
+                for (String criteria : progress.getUnobtainedCriteria()) {
+                    ((ServerPlayerEntity)(Object) this).getAdvancementTracker().grantCriterion(advancement, criteria);
                 }
             }
         }

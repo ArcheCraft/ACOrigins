@@ -27,7 +27,7 @@
     {
       "condition": "acorigins:withers_killed",
       "origin": "acorigins:evolved_fire_lord",
-      "announcement": "You have evolved into your final form."
+      "announcement": "You have evolved."
     }
   ],
   "name": "Lord of the Nether",
