@@ -2,11 +2,10 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.archecraft.minecraft.acorigins.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "PlayerEntityMixin",
-    "ProjectileEntityMixin",
-    "ServerPlayerMixin"
+    "ProjectileEntityMixin"
   ],
   "client": [
   ],

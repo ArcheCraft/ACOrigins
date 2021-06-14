@@ -6,5 +6,5 @@ import me.shedaniel.autoconfig.annotation.Config;
 
 @Config(name = ACOrigins.MODID)
 public class ClientConfig implements ConfigData {
-    public boolean enableLavaVision = true;
+
 }

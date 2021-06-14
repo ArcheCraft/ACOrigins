@@ -1,15 +1,14 @@
 package com.archecraft.minecraft.acorigins.powers;
 
-import io.github.apace100.origins.power.*;
+import io.github.apace100.apoli.power.*;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
-import net.minecraft.block.*;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.*;
@@ -22,7 +21,7 @@ public class FurnacePower extends Power implements Active, Inventory {
     private final ScreenHandlerFactory factory;
     private final PropertyDelegate properties;
     
-    public FurnacePower(PowerType<?> type, PlayerEntity player, String containerName) {
+    public FurnacePower(PowerType<?> type, LivingEntity player, String containerName) {
         super(type, player);
         
         this.inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
@@ -58,30 +57,30 @@ public class FurnacePower extends Power implements Active, Inventory {
     
     @Override
     public void onUse() {
-        if (!player.world.isClient) {
-            player.openHandledScreen(new SimpleNamedScreenHandlerFactory(factory, containerName));
+        if (entity instanceof PlayerEntity && !entity.world.isClient) {
+            ((PlayerEntity) entity).openHandledScreen(new SimpleNamedScreenHandlerFactory(factory, containerName));
         }
     }
     
     @Override
-    public Tag toTag() {
-        CompoundTag tag = new CompoundTag();
-        Inventories.toTag(tag, inventory);
+    public NbtElement toTag() {
+        NbtCompound tag = new NbtCompound();
+        Inventories.writeNbt(tag, inventory);
         return tag;
     }
     
     @Override
-    public void fromTag(Tag tag) {
+    public void fromTag(NbtElement tag) {
         inventory = DefaultedList.ofSize(size(), ItemStack.EMPTY);
-        Inventories.fromTag((CompoundTag) tag, inventory);
+        Inventories.readNbt((NbtCompound) tag, inventory);
     }
     
     
     @Override
     public void tick() {
-        if (!player.world.isClient) {
-            if (player.isOnFire()) {
-                Recipe<?> recipe = player.world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, this, player.world).orElse(null);
+        if (!entity.world.isClient) {
+            if (entity.isOnFire()) {
+                Recipe<?> recipe = entity.world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, this, entity.world).orElse(null);
                 
                 if (canAcceptRecipeOutput(recipe)) {
                     craftRecipe(recipe);
@@ -168,7 +167,7 @@ public class FurnacePower extends Power implements Active, Inventory {
     
     @Override
     public boolean canPlayerUse(PlayerEntity player) {
-        return player == this.player;
+        return player == entity;
     }
     
     @Override

@@ -5,9 +5,7 @@ import com.archecraft.minecraft.acorigins.components.ACODataComponent;
 import com.archecraft.minecraft.acorigins.components.PlayerDataComponent;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
-import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
-import nerdhub.cardinal.components.api.util.RespawnCopyStrategy;
+import dev.onyxstudios.cca.api.v3.entity.*;
 import net.minecraft.util.Identifier;
 
 public class ACOComponents implements EntityComponentInitializer {

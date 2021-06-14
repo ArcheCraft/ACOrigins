@@ -1,6 +1,7 @@
 package com.archecraft.minecraft.acorigins.powers;
 
-import io.github.apace100.origins.power.PowerType;
+import io.github.apace100.apoli.power.PowerType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,7 +10,7 @@ import net.minecraft.text.Text;
 public class WrongDimensionPower extends ACODataPower {
     private EntityAttributeModifier currentModifier = null;
     
-    public WrongDimensionPower(PowerType<?> type, PlayerEntity player) {
+    public WrongDimensionPower(PowerType<?> type, LivingEntity player) {
         super(type, player);
         setTicking(true);
     }
@@ -23,7 +24,7 @@ public class WrongDimensionPower extends ACODataPower {
         }
         
         if (data.getTicksWrongDimension() >= getTicksForDeath()) {
-            player.kill();
+            entity.kill();
         } else {
             if (currentModifier != null) {
                 if ((int) currentModifier.getValue() != getValue()) {
@@ -33,8 +34,8 @@ public class WrongDimensionPower extends ACODataPower {
                 updateModifier();
             }
             
-            if (data.getTicksWrongDimension() != 0) {
-                player.sendMessage(Text.of(getSecondsLeft() + "s left"), true);
+            if (entity instanceof PlayerEntity && data.getTicksWrongDimension() != 0) {
+                ((PlayerEntity) entity).sendMessage(Text.of(getSecondsLeft() + "s left"), true);
             }
         }
     }
@@ -44,7 +45,7 @@ public class WrongDimensionPower extends ACODataPower {
     }
     
     private int getTicksForDeath() {
-        return (int) (player.getMaxHealth() - (currentModifier == null ? 0 : currentModifier.getValue())) * data.getTicksPerHeartWrongDimension();
+        return (int) (entity.getMaxHealth() - (currentModifier == null ? 0 : currentModifier.getValue())) * data.getTicksPerHeartWrongDimension();
     }
     
     private int getSecondsLeft() {
@@ -54,10 +55,10 @@ public class WrongDimensionPower extends ACODataPower {
     
     private void updateModifier() {
         if (currentModifier != null) {
-            player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).removeModifier(currentModifier);
+            entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).removeModifier(currentModifier);
         }
         
         currentModifier = new EntityAttributeModifier("Wrong Dimension", getValue(), EntityAttributeModifier.Operation.ADDITION);
-        player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).addTemporaryModifier(currentModifier);
+        entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).addTemporaryModifier(currentModifier);
     }
 }
