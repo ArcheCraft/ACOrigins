@@ -1,10 +1,11 @@
 package com.archecraft.minecraft.acorigins.powers;
 
-import io.github.apace100.origins.power.PowerType;
+import io.github.apace100.apoli.power.PowerType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class KillDragonBonusPower extends ACODataPower {
-    public KillDragonBonusPower(PowerType<?> type, PlayerEntity player) {
+    public KillDragonBonusPower(PowerType<?> type, LivingEntity player) {
         super(type, player);
     }
     

@@ -1,7 +1,7 @@
 package com.archecraft.minecraft.acorigins.components;
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 
 public class PlayerDataComponent implements ACODataComponent {
     private PlayerEntity player;
@@ -22,7 +22,7 @@ public class PlayerDataComponent implements ACODataComponent {
     }
     
     @Override
-    public void readFromNbt(CompoundTag tag) {
+    public void readFromNbt(NbtCompound tag) {
         withersKilled = tag.getInt("WithersKilled");
         health = tag.getDouble("Health");
         range = tag.getDouble("Range");
@@ -34,7 +34,7 @@ public class PlayerDataComponent implements ACODataComponent {
     }
     
     @Override
-    public void writeToNbt(CompoundTag tag) {
+    public void writeToNbt(NbtCompound tag) {
         tag.putInt("WithersKilled", withersKilled);
         tag.putDouble("Health", health);
         tag.putDouble("Range", range);

@@ -2,11 +2,12 @@ package com.archecraft.minecraft.acorigins.registry;
 
 import com.archecraft.minecraft.acorigins.ACOrigins;
 import com.archecraft.minecraft.acorigins.powers.*;
-import io.github.apace100.origins.power.*;
-import io.github.apace100.origins.power.factory.PowerFactory;
-import io.github.apace100.origins.registry.ModRegistries;
-import io.github.apace100.origins.util.SerializableData;
-import io.github.apace100.origins.util.SerializableDataType;
+import io.github.apace100.apoli.data.ApoliDataTypes;
+import io.github.apace100.apoli.power.*;
+import io.github.apace100.apoli.power.factory.PowerFactory;
+import io.github.apace100.apoli.registry.ApoliRegistries;
+import io.github.apace100.calio.data.SerializableData;
+import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -19,11 +20,6 @@ public class ACOPowers {
     public static final PowerType<Power> FIRE_ASPECT = new PowerTypeReference<>(new Identifier(ACOrigins.MODID, "fire_aspect"));
     public static final PowerType<Power> WITHER_INFLICT = new PowerTypeReference<>(new Identifier(ACOrigins.MODID, "wither_inflict"));
     
-    public static final PowerFactory<Power> FLIGHT = create(new PowerFactory<Power>(
-            new Identifier(ACOrigins.MODID, "flight"),
-            new SerializableData(),
-            instance -> FlightPower::new
-    ));
     public static final PowerFactory<Power> WRONG_DIMENSION = create(new PowerFactory<Power>(
             new Identifier(ACOrigins.MODID, "wrong_dimension"),
             new SerializableData(),
@@ -46,8 +42,8 @@ public class ACOPowers {
     ));
     public static final PowerFactory<Power> FURNACE_POWER = create(new PowerFactory<>(new Identifier(ACOrigins.MODID, "furnace"),
             new SerializableData()
-                    .add("name", SerializableDataType.STRING, "container.inventory")
-                    .add("key", SerializableDataType.KEY, new Active.Key()),
+                    .add("name", SerializableDataTypes.STRING, "container.inventory")
+                    .add("key", ApoliDataTypes.KEY, new Active.Key()),
             data ->
                     (type, player) -> {
                         FurnacePower power = new FurnacePower(type, player, data.getString("name"));
@@ -62,6 +58,6 @@ public class ACOPowers {
     }
     
     public static void init() {
-        POWER_FACTORIES.keySet().forEach(powerType -> Registry.register(ModRegistries.POWER_FACTORY, POWER_FACTORIES.get(powerType), powerType));
+        POWER_FACTORIES.keySet().forEach(powerType -> Registry.register(ApoliRegistries.POWER_FACTORY, POWER_FACTORIES.get(powerType), powerType));
     }
 }
