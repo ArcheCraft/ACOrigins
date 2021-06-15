@@ -11,14 +11,14 @@ public class KillDragonBonusPower extends ACODataPower {
     
     @Override
     public void onAdded() {
-        data.setTicksPerHeartWrongDimension(data.getTicksPerHeartWrongDimension() + 100);
+        data.setTicksPerHeartWrongDimension(data.getTicksPerHeartWrongDimension() + 50);
         data.setRange(data.getRange() + 1);
         data.setHealth(data.getHealth() + 5);
     }
     
     @Override
     public void onRemoved() {
-        data.setTicksPerHeartWrongDimension(data.getTicksPerHeartWrongDimension() - 100);
+        data.setTicksPerHeartWrongDimension(data.getTicksPerHeartWrongDimension() - 50);
         data.setRange(data.getRange() - 1);
         data.setHealth(data.getHealth() - 5);
     }
