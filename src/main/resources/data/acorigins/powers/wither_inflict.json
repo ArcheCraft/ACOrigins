@@ -1,5 +1,3 @@
 {
-  "type": "origins:simple",
-  "name": "Withering",
-  "description": "You apply wither to anyone you hit."
+  "type": "origins:simple"
 }

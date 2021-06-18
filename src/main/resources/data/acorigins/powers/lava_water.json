@@ -13,7 +13,5 @@
       "comparison": ">",
       "compare_to": 0.0
     }
-  },
-  "name": "Lavadynamic body",
-  "description": "You can swim in lava."
+  }
 }

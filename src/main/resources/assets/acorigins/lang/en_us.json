@@ -8,5 +8,47 @@
   "commands.acorigins.upgrades.list.health": "Health: %s",
   "commands.acorigins.upgrades.list.damage": "Damage: %s",
   "commands.acorigins.upgrades.list.armor": "Armor: %s",
-  "commands.acorigins.upgrades.list.range": "Range: %s"
+  "commands.acorigins.upgrades.list.range": "Range: %s",
+
+
+  "advancements.acorigins.more_withers_killed.title": "You really ain't got a hobby!",
+  "advancements.acorigins.more_withers_killed.description": "Slay 10000 Withers.",
+
+  "advancements.acorigins.withers_killed.title": "Ain't got a hobby?",
+  "advancements.acorigins.withers_killed.description": "Slay 100 Withers.",
+
+
+  "origin.acorigins.fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.advanced_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.advanced_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.evolved_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.evolved_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.final_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.final_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+
+  "power.acorigins.fire_aspect.name": "Tactical fire",
+  "power.acorigins.fire_aspect.description": "It's like fire aspect and flame while burning.",
+
+  "power.acorigins.flight.name": "Flight",
+  "power.acorigins.flight.description": "You can fly. Like, actually fly.",
+
+  "power.acorigins.furnace.name": "Blazing fire",
+  "power.acorigins.furnace.description": "You can use fire to smelt stuff.",
+
+  "power.acorigins.hellish_life.name": "Hellish life",
+  "power.acorigins.hellish_life.description": "Your max health slowly decreases while in the overworld, until you die.",
+
+  "power.acorigins.lava_water.name": "Lavadynamic body",
+  "power.acorigins.lava_water.description": "You can swim in lava.",
+
+  "power.acorigins.wither_bonus.name": "Withering insides",
+  "power.acorigins.wither_bonus.description": "As your ancestors have mastered the withers, you can use their knowledge to gain stronger from killing withers.",
+
+  "power.acorigins.wither_inflict.name": "Withering soul",
+  "power.acorigins.wither_inflict.description": "You apply wither to anything you hit."
 }
