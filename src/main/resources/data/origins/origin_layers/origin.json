@@ -1,6 +1,7 @@
 {
   "replace": false,
   "origins": [
-    "acorigins:fire_lord"
+    "acorigins:fire_lord",
+    "acorigins:elemental_spirit"
   ]
 }

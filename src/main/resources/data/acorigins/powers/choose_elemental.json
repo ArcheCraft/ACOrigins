@@ -1,0 +1,12 @@
+{
+  "type": "acorigins:choose",
+  "options": [
+    "fire",
+    "water",
+    "air"
+  ],
+  "key": {
+    "key": "key.origins.primary_active"
+  },
+  "hidden": true
+}

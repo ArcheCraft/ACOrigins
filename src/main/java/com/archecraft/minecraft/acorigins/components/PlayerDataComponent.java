@@ -15,7 +15,7 @@ public class PlayerDataComponent implements ACODataComponent {
     private double damage = 0;
     
     private int ticks = 0;
-    private int ticksPerHealth = 100;
+    private int ticksPerHeart = 200;
     
     public PlayerDataComponent(PlayerEntity player) {
         this.player = player;
@@ -30,7 +30,7 @@ public class PlayerDataComponent implements ACODataComponent {
         armor = tag.getDouble("Armor");
         damage = tag.getDouble("Damage");
         ticks = tag.getInt("Ticks");
-        ticksPerHealth = tag.getInt("TicksPerHealth");
+        ticksPerHeart = tag.getInt("TicksPerHeart");
     }
     
     @Override
@@ -42,7 +42,12 @@ public class PlayerDataComponent implements ACODataComponent {
         tag.putDouble("Armor", armor);
         tag.putDouble("Damage", damage);
         tag.putInt("Ticks", ticks);
-        tag.putInt("TicksPerHealth", ticksPerHealth);
+        tag.putInt("TicksPerHeart", ticksPerHeart);
+    }
+    
+    @Override
+    public void sync() {
+        ACODataComponent.sync(player);
     }
     
     @Override
@@ -106,24 +111,22 @@ public class PlayerDataComponent implements ACODataComponent {
     }
     
     @Override
-    public int getTicksWrongDimension() {
+    public int getTicks() {
         return ticks;
     }
     
     @Override
-    public void setTicksWrongDimension(int ticks) {
+    public void setTicks(int ticks) {
         this.ticks = ticks;
-        
-        if (this.ticks < 0) this.ticks = 0;
     }
     
     @Override
-    public int getTicksPerHeartWrongDimension() {
-        return ticksPerHealth * 2;
+    public int getTicksPerHeart() {
+        return ticksPerHeart;
     }
     
     @Override
-    public void setTicksPerHeartWrongDimension(int ticksPerHeart) {
-        ticksPerHealth = ticksPerHeart / 2;
+    public void setTicksPerHeart(int ticksPerHeart) {
+        this.ticksPerHeart = ticksPerHeart;
     }
 }

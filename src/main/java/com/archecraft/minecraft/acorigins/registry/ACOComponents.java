@@ -12,7 +12,7 @@ public class ACOComponents implements EntityComponentInitializer {
     public static final ComponentKey<ACODataComponent> DATA;
     
     static {
-        DATA = ComponentRegistry.getOrCreate(new Identifier(ACOrigins.MODID, "data"), ACODataComponent.class);
+        DATA = ComponentRegistry.getOrCreate(ACOrigins.identifier("data"), ACODataComponent.class);
     }
     
     @Override
