@@ -1,5 +1,3 @@
 {
-  "type": "acorigins:furnace",
-  "name": "Blazing fire",
-  "description": "You are so hot, you can use fire to smelt stuff"
+  "type": "acorigins:furnace"
 }

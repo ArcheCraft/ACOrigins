@@ -1,0 +1,61 @@
+{
+  "type": "origins:multiple",
+  "tailwind": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "name": "Tailwind speed bonus",
+      "attribute": "minecraft:generic.movement_speed",
+      "value": 0.02,
+      "operation": "addition"
+    },
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "air"
+    }
+  },
+  "slow_falling": {
+    "type": "origins:modify_falling",
+    "velocity": 0.01,
+    "take_fall_damage": false,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:or",
+          "conditions": [
+            {
+              "type": "origins:and",
+              "conditions": [
+                {
+                  "type": "origins:sneaking"
+                },
+                {
+                  "type": "origins:fall_flying"
+                }
+              ]
+            },
+            {
+              "type": "origins:and",
+              "conditions": [
+                {
+                  "type": "origins:sneaking",
+                  "inverted": true
+                },
+                {
+                  "type": "origins:fall_flying",
+                  "inverted": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "acorigins:chosen",
+          "power": "acorigins:choose_elemental",
+          "option": "air"
+        }
+      ]
+    }
+  }
+}

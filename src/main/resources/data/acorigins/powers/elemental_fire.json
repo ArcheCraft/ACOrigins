@@ -1,0 +1,57 @@
+{
+  "type": "origins:multiple",
+  "fire_immunity": {
+    "type": "acorigins:power",
+    "power": "origins:fire_immunity",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  },
+  "water_vulnerability": {
+    "type": "acorigins:power",
+    "power": "origins:water_vulnerability",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  },
+  "flame_particles": {
+    "type": "acorigins:power",
+    "power": "origins:flame_particles",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  },
+  "damage_from_snowballs": {
+    "type": "acorigins:power",
+    "power": "origins:damage_from_snowballs",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  },
+  "damage_from_potions": {
+    "type": "acorigins:power",
+    "power": "origins:damage_from_potions",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  },
+  "burning_wrath": {
+    "type": "acorigins:power",
+    "power": "origins:burning_wrath",
+    "condition": {
+      "type": "acorigins:chosen",
+      "power": "acorigins:choose_elemental",
+      "option": "fire"
+    }
+  }
+}

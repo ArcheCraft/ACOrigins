@@ -1,12 +1,62 @@
 {
-  "commands.acorigins.upgrades.invalid_upgrade_type": "Invalid upgrade type: %s",
+  "message.acorigins.wrong_dimension.seconds_left": "%ds left",
 
-  "commands.acorigins.upgrades.points": "Available upgrade points: %s",
+  "message.acorigins.choose.chosen_": "§7===== - =====",
+  "message.acorigins.choose.chosen_fire": "§6===== FIRE =====",
+  "message.acorigins.choose.chosen_water": "§1===== WATER =====",
+  "message.acorigins.choose.chosen_air": "§b===== AIR =====",
 
-  "commands.acorigins.upgrades.list": "Upgrade prices:",
-  "commands.acorigins.upgrades.list.speed": "Speed: %s",
-  "commands.acorigins.upgrades.list.health": "Health: %s",
-  "commands.acorigins.upgrades.list.damage": "Damage: %s",
-  "commands.acorigins.upgrades.list.armor": "Armor: %s",
-  "commands.acorigins.upgrades.list.range": "Range: %s"
+
+  "advancements.acorigins.more_withers_killed.title": "You really ain't got a hobby!",
+  "advancements.acorigins.more_withers_killed.description": "Slay 10000 Withers.",
+
+  "advancements.acorigins.withers_killed.title": "Ain't got a hobby?",
+  "advancements.acorigins.withers_killed.description": "Slay 100 Withers.",
+
+
+  "origin.acorigins.fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.advanced_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.advanced_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.evolved_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.evolved_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.final_fire_lord.name": "Lord of the Nether",
+  "origin.acorigins.final_fire_lord.description": "The Lords of the Nether are descendents of the long dead kings of the nether. As such they are quite strong while in their kingdom, but when they leave it, they are like basic humans.",
+
+  "origin.acorigins.elemental_spirit.name": "Elemental spirit",
+  "origin.acorigins.elemental_spirit.description": "You have mastered the elements and can use their powers.",
+
+
+  "power.acorigins.fire_aspect.name": "Tactical fire",
+  "power.acorigins.fire_aspect.description": "It's like fire aspect and flame while burning.",
+
+  "power.acorigins.flight.name": "Flight",
+  "power.acorigins.flight.description": "You can fly. Like, actually fly.",
+
+  "power.acorigins.furnace.name": "Blazing fire",
+  "power.acorigins.furnace.description": "You can use fire to smelt stuff.",
+
+  "power.acorigins.hellish_life.name": "Hellish life",
+  "power.acorigins.hellish_life.description": "Your max health slowly decreases while in the overworld, until you die.",
+
+  "power.acorigins.lava_water.name": "Lavadynamic body",
+  "power.acorigins.lava_water.description": "You can swim in lava.",
+
+  "power.acorigins.wither_bonus.name": "Withering insides",
+  "power.acorigins.wither_bonus.description": "As your ancestors have mastered the withers, you can use their knowledge to gain stronger from killing withers.",
+
+  "power.acorigins.wither_inflict.name": "Withering soul",
+  "power.acorigins.wither_inflict.description": "You apply wither to anything you hit.",
+
+  "power.acorigins.elemental_fire.name": "Fire form",
+  "power.acorigins.elemental_fire.description": "While in your fire form, you are invulnerable to fire damage, deal extra damage while on fire, and get damage from water.",
+
+  "power.acorigins.elemental_water.name": "Water form",
+  "power.acorigins.elemental_water.description": "While in your water form, you mine at normal speed under water, swim faster in water and get extra damage from fire.",
+
+  "power.acorigins.elemental_air.name": "Air form",
+  "power.acorigins.elemental_air.description": "While in your air form, you are faster and you fall slower."
 }

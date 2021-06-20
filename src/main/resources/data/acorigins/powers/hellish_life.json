@@ -3,7 +3,5 @@
   "condition":  {
     "type": "origins:dimension",
     "dimension": "minecraft:overworld"
-  },
-  "name": "Hellish life",
-  "description": "Your max health slowly decreases while in the overworld, until you just die."
+  }
 }

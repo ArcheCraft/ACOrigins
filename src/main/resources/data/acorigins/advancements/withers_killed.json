@@ -3,9 +3,13 @@
     "icon": {
       "item": "minecraft:wither_skeleton_skull"
     },
-    "title": "Ain't got a hobby?",
+    "title": {
+      "translate": "advancements.acorigins.withers_killed.title"
+    },
     "frame": "challenge",
-    "description": "Slay 100 Withers",
+    "description": {
+      "translate": "advancements.acorigins.withers_killed.description"
+    },
     "hidden": true
   },
   "parent": "minecraft:nether/summon_wither",

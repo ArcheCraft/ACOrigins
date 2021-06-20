@@ -6,10 +6,11 @@ import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 
 public class ACOriginsClient implements ClientModInitializer {
+    public static ClientConfig config;
     
     @Override
     public void onInitializeClient() {
         AutoConfig.register(ClientConfig.class, Toml4jConfigSerializer::new);
-        ClientConfig config = AutoConfig.getConfigHolder(ClientConfig.class).getConfig();
+        config = AutoConfig.getConfigHolder(ClientConfig.class).getConfig();
     }
 }

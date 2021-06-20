@@ -1,8 +1,17 @@
 package com.archecraft.minecraft.acorigins.components;
 
+import com.archecraft.minecraft.acorigins.registry.ACOComponents;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 
 public interface ACODataComponent extends AutoSyncedComponent {
+    void sync();
+    
+    static void sync(LivingEntity entity) {
+        ACOComponents.DATA.sync(entity);
+    }
+    
     int getWithersKilled();
     
     void setWithersKilled(int withersKilled);
@@ -31,11 +40,11 @@ public interface ACODataComponent extends AutoSyncedComponent {
     
     void setDamage(double damage);
     
-    int getTicksWrongDimension();
+    int getTicks();
     
-    void setTicksWrongDimension(int ticks);
+    void setTicks(int ticks);
     
-    int getTicksPerHeartWrongDimension();
+    int getTicksPerHeart();
     
-    void setTicksPerHeartWrongDimension(int ticksPerHeart);
+    void setTicksPerHeart(int ticksPerHeart);
 }

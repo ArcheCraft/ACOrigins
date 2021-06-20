@@ -23,7 +23,5 @@
   },
   "order": 1,
   "impact": 3,
-  "loading_priority": 0,
-  "name": "Lord of the Nether",
-  "description": "The Lord of the Nether is very strong while in the Nether, but has only limited time to live in the Overworld."
+  "loading_priority": 0
 }

@@ -1,0 +1,15 @@
+{
+  "powers": [
+    "origins:fragile",
+    "acorigins:choose_elemental",
+    "acorigins:elemental_fire",
+    "acorigins:elemental_water",
+    "acorigins:elemental_air"
+  ],
+  "icon": {
+    "item": "minecraft:magma_cream"
+  },
+  "order": 1,
+  "impact": 3,
+  "loading_priority": 0
+}

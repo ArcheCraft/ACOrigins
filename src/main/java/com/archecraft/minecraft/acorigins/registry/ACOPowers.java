@@ -5,59 +5,86 @@ import com.archecraft.minecraft.acorigins.powers.*;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.*;
 import io.github.apace100.apoli.power.factory.PowerFactory;
+import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
-import io.github.apace100.calio.data.SerializableData;
-import io.github.apace100.calio.data.SerializableDataTypes;
-import net.minecraft.util.Identifier;
+import io.github.apace100.calio.data.*;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.registry.Registry;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 
 public class ACOPowers {
-    private static final Map<PowerFactory<?>, Identifier> POWER_FACTORIES = new LinkedHashMap<>();
-    
-    public static final PowerType<Power> FIRE_ASPECT = new PowerTypeReference<>(new Identifier(ACOrigins.MODID, "fire_aspect"));
-    public static final PowerType<Power> WITHER_INFLICT = new PowerTypeReference<>(new Identifier(ACOrigins.MODID, "wither_inflict"));
-    
-    public static final PowerFactory<Power> WRONG_DIMENSION = create(new PowerFactory<Power>(
-            new Identifier(ACOrigins.MODID, "wrong_dimension"),
-            new SerializableData(),
-            instance -> WrongDimensionPower::new
-    ).allowCondition());
-    public static final PowerFactory<Power> NETHER_BONUS = create(new PowerFactory<Power>(
-            new Identifier(ACOrigins.MODID, "nether_bonus"),
-            new SerializableData(),
-            instance -> NetherBonusesPower::new
-    ).allowCondition());
-    public static final PowerFactory<Power> WITHER_BONUS = create(new PowerFactory<Power>(
-            new Identifier(ACOrigins.MODID, "wither_bonus"),
-            new SerializableData(),
-            instance -> WitherKillBonusPower::new
-    ).allowCondition());
-    public static final PowerFactory<Power> DRAGON_BONUS = create(new PowerFactory<>(
-            new Identifier(ACOrigins.MODID, "dragon_bonus"),
-            new SerializableData(),
-            instance -> KillDragonBonusPower::new
-    ));
-    public static final PowerFactory<Power> FURNACE_POWER = create(new PowerFactory<>(new Identifier(ACOrigins.MODID, "furnace"),
-            new SerializableData()
-                    .add("name", SerializableDataTypes.STRING, "container.inventory")
-                    .add("key", ApoliDataTypes.KEY, new Active.Key()),
-            data ->
-                    (type, player) -> {
-                        FurnacePower power = new FurnacePower(type, player, data.getString("name"));
-                        power.setKey((Active.Key) data.get("key"));
-                        return power;
-                    }));
+    public static final PowerType<Power> FIRE_ASPECT = new PowerTypeReference<>(ACOrigins.identifier("fire_aspect"));
+    public static final PowerType<Power> WITHER_INFLICT = new PowerTypeReference<>(ACOrigins.identifier("wither_inflict"));
     
     
-    private static <T extends Power> PowerFactory<T> create(PowerFactory<T> factory) {
-        POWER_FACTORIES.put(factory, factory.getSerializerId());
-        return factory;
+    private static <T extends Power> void register(PowerFactory<T> factory) {
+        Registry.register(ApoliRegistries.POWER_FACTORY, factory.getSerializerId(), factory);
     }
     
+    
     public static void init() {
-        POWER_FACTORIES.keySet().forEach(powerType -> Registry.register(ApoliRegistries.POWER_FACTORY, POWER_FACTORIES.get(powerType), powerType));
+        register(new PowerFactory<>(
+                ACOrigins.identifier("wrong_dimension"),
+                new SerializableData()
+                        .add("condition", ApoliDataTypes.ENTITY_CONDITION),
+                data ->
+                        (type, entity) -> new WrongDimensionPower(type, entity, (ConditionFactory<LivingEntity>.Instance) data.get("condition"))
+        ));
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("nether_bonus"),
+                new SerializableData(),
+                data -> NetherBonusesPower::new
+        ).allowCondition());
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("wither_bonus"),
+                new SerializableData(),
+                data -> WitherKillBonusPower::new
+        ).allowCondition());
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("dragon_bonus"),
+                new SerializableData(),
+                data -> KillDragonBonusPower::new
+        ));
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("furnace"),
+                new SerializableData()
+                        .add("name", SerializableDataTypes.STRING, "container.inventory")
+                        .add("key", ApoliDataTypes.KEY, new Active.Key()),
+                data ->
+                        (type, player) -> {
+                            FurnacePower power = new FurnacePower(type, player, data.getString("name"));
+                            power.setKey((Active.Key) data.get("key"));
+                            return power;
+                        }));
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("choose"),
+                new SerializableData()
+                        .add("options", SerializableDataType.list(SerializableDataTypes.STRING))
+                        .add("key", ApoliDataTypes.KEY, new Active.Key()),
+                data ->
+                        (type, player) -> {
+                            ChoosePower power = new ChoosePower(type, player, (List<String>) data.get("options"));
+                            power.setKey((Active.Key) data.get("key"));
+                            return power;
+                        }
+        ));
+        
+        register(new PowerFactory<>(
+                ACOrigins.identifier("power"),
+                new SerializableData()
+                        .add("power", ApoliDataTypes.APOLI_IDENTIFIER),
+                data ->
+                        (type, player) -> {
+                            PowerType<?> reference = PowerTypeRegistry.get(data.getId("power"));
+                            type.setTranslationKeys(reference.getOrCreateNameTranslationKey(), reference.getOrCreateDescriptionTranslationKey());
+                            return new DelegatePower(type, player, reference);
+                        }
+        ).allowCondition());
     }
 }

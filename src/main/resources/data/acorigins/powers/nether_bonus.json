@@ -1,6 +1,6 @@
 {
   "type": "acorigins:nether_bonus",
-  "condition":  {
+  "condition": {
     "type": "origins:dimension",
     "dimension": "minecraft:the_nether"
   },
