@@ -44,10 +44,10 @@ public abstract class PlayerEntityMixin {
     
             PowerHolderComponent.getPowers((PlayerEntity)(Object) this, WitherKillBonusPower.class).forEach(WitherKillBonusPower::killedWither);
     
-            if (data.getWithersKilled() >= 100) {
+            if (data.getWithersKilled() >= 10) {
                 completeAdvancement("acorigins:withers_killed");
             }
-            if (data.getWithersKilled() >= 10000) {
+            if (data.getWithersKilled() >= 100) {
                 completeAdvancement("acorigins:more_withers_killed");
             }
         }

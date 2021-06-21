@@ -8,5 +8,28 @@
   "key": {
     "key": "key.origins.primary_active"
   },
+  "condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:fall_distance",
+        "comparison": ">=",
+        "compare_to": 4
+      },
+      {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:lava",
+        "comparison": ">",
+        "compare_to": 0
+      },
+      {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0
+      }
+    ],
+    "inverted": true
+  },
   "hidden": true
 }

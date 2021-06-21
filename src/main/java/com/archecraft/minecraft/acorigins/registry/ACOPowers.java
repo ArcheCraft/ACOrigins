@@ -73,7 +73,7 @@ public class ACOPowers {
                             power.setKey((Active.Key) data.get("key"));
                             return power;
                         }
-        ));
+        ).allowCondition());
         
         register(new PowerFactory<>(
                 ACOrigins.identifier("power"),
