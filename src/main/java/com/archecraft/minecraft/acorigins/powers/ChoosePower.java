@@ -34,7 +34,9 @@ public class ChoosePower extends Power implements Active {
     
     @Override
     public void onUse() {
-        currOption = (currOption + 1) % options.size();
+        if (isActive()) {
+            currOption = (currOption + 1) % options.size();
+        }
     }
     
     @Override
