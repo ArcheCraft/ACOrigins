@@ -30,5 +30,6 @@
       "origin": "acorigins:evolved_fire_lord",
       "announcement": "You have evolved into your final form."
     }
-  ]
+  ],
+  "unchoosable": true
 }

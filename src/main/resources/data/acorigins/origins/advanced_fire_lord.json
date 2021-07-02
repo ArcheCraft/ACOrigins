@@ -29,5 +29,6 @@
       "origin": "acorigins:evolved_fire_lord",
       "announcement": "You have evolved."
     }
-  ]
+  ],
+  "unchoosable": true
 }

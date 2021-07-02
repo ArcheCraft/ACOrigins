@@ -2,6 +2,9 @@
   "replace": false,
   "origins": [
     "acorigins:fire_lord",
+    "acorigins:advanced_fire_lord",
+    "acorigins:evolved_fire_lord",
+    "acorigins:final_fire_lord",
     "acorigins:elemental_spirit"
   ]
 }
