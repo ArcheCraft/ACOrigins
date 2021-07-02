@@ -1,6 +1,6 @@
 {
   "type": "acorigins:nether_bonus",
-  "condition":{
+  "condition": {
     "type": "origins:or",
     "conditions": [
       {

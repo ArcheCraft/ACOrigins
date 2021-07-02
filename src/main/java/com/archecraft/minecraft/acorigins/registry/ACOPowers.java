@@ -78,7 +78,7 @@ public class ACOPowers {
         register(new PowerFactory<>(
                 ACOrigins.identifier("power"),
                 new SerializableData()
-                        .add("power", ApoliDataTypes.APOLI_IDENTIFIER),
+                        .add("power", SerializableDataTypes.IDENTIFIER),
                 data ->
                         (type, player) -> {
                             PowerType<?> reference = PowerTypeRegistry.get(data.getId("power"));

@@ -22,5 +22,6 @@
   },
   "order": 1,
   "impact": 3,
-  "loading_priority": 0
+  "loading_priority": 0,
+  "unchoosable": true
 }
