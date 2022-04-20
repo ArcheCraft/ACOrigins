@@ -29,15 +29,11 @@ public class FurnacePower extends Power implements Active, Inventory {
         this.properties = new PropertyDelegate() {
             @Override
             public int get(int index) {
-                switch (index) {
-                    case 0:
-                    case 1:
-                        return player.isOnFire() ? 2 : 0;
-                    case 3:
-                        return 1;
-                    default:
-                        return 0;
-                }
+                return switch (index) {
+                    case 0, 1 -> player.isOnFire() ? 2 : 0;
+                    case 3 -> 1;
+                    default -> 0;
+                };
             }
             
             @Override

@@ -10,6 +10,8 @@ public class KillDragonBonusPower extends ACODataPower {
     
     @Override
     public void onAdded() {
+        super.onAdded();
+        
         data.setTicksPerHeart(data.getTicksPerHeart() + 50);
         data.setRange(data.getRange() + 1);
         data.setHealth(data.getHealth() + 5);

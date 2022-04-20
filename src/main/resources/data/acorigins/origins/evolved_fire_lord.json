@@ -27,7 +27,7 @@
   "upgrades": [
     {
       "condition": "acorigins:more_withers_killed",
-      "origin": "acorigins:evolved_fire_lord",
+      "origin": "acorigins:final_fire_lord",
       "announcement": "You have evolved into your final form."
     }
   ],

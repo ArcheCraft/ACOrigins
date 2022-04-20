@@ -12,6 +12,10 @@ public abstract class ACODataPower extends Power {
     
     public ACODataPower(PowerType<?> type, LivingEntity player) {
         super(type, player);
-        data = ACOComponents.DATA.get(player);
+    }
+    
+    @Override
+    public void onAdded() {
+        data = ACOComponents.DATA.get(entity);
     }
 }

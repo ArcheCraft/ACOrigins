@@ -29,7 +29,7 @@ public class ACOPowers {
                 new SerializableData()
                         .add("condition", ApoliDataTypes.ENTITY_CONDITION),
                 data ->
-                        (type, entity) -> new WrongDimensionPower(type, entity, (ConditionFactory<LivingEntity>.Instance) data.get("condition"))
+                        (type, entity) -> new WrongDimensionPower(type, entity, data.get("condition"))
         ));
         
         register(new PowerFactory<>(
@@ -69,7 +69,7 @@ public class ACOPowers {
                         .add("key", ApoliDataTypes.KEY, new Active.Key()),
                 data ->
                         (type, player) -> {
-                            ChoosePower power = new ChoosePower(type, player, (List<String>) data.get("options"));
+                            ChoosePower power = new ChoosePower(type, player, data.get("options"));
                             power.setKey((Active.Key) data.get("key"));
                             return power;
                         }
@@ -81,9 +81,7 @@ public class ACOPowers {
                         .add("power", SerializableDataTypes.IDENTIFIER),
                 data ->
                         (type, player) -> {
-                            PowerType<?> reference = PowerTypeRegistry.get(data.getId("power"));
-                            type.setTranslationKeys(reference.getOrCreateNameTranslationKey(), reference.getOrCreateDescriptionTranslationKey());
-                            return new DelegatePower(type, player, reference);
+                            return new DelegatePower(type, player, data.getId("power"));
                         }
         ).allowCondition());
     }

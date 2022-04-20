@@ -8,11 +8,12 @@ import io.github.apace100.apoli.power.*;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import io.github.apace100.calio.data.*;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.registry.Registry;
 
 public class ACOEntityConditions {
-    private static void register(ConditionFactory<LivingEntity> conditionFactory) {
+    private static void register(ConditionFactory<Entity> conditionFactory) {
         Registry.register(ApoliRegistries.ENTITY_CONDITION, conditionFactory.getSerializerId(), conditionFactory);
     }
     
@@ -23,7 +24,7 @@ public class ACOEntityConditions {
                         .add("option", SerializableDataTypes.STRING)
                         .add("power", ApoliDataTypes.POWER_TYPE),
                 (data, entity) -> {
-                     PowerType<?> type = (PowerType<?>) data.get("power");
+                     PowerType<?> type = data.get("power");
                      Power power = PowerHolderComponent.KEY.get(entity).getPower(type);
                      if (!(power instanceof ChoosePower)) {
                          ACOrigins.LOGGER.info("Failed to get power for type " + type.getIdentifier());
